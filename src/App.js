@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/Header/Header'
-import Posts from './components/Posts/Posts'
+import Header from './components/header'
+import Posts from './components/posts'
 import './App.css';
 
 export default function App() {
