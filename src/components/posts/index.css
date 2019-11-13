@@ -1,3 +1,12 @@
 .makeStyles-gridList-2 {
     display: inline;
 }
+
+.post {
+    display: flex;
+}
+
+.post-area {
+    width: 100%;
+    margin: auto;
+}

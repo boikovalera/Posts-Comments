@@ -1,37 +1,43 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import PostList from './PostList'
-import Comments from '../comments/index'
-import config from '../../config'
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import List from '@material-ui/core/List';
+import PostListItem from './PostListItem';
 
-export default function Post() {
-
-  //const match = useRouteMatch();
-  //const history = useHistory();
-  const [posts, setPosts] = useState([]);
-  const [textPost, setTextPost] = useState([]);
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    axios.get(config.postUrl).then(res => setPosts(res.data));
-  }, [])
-  
-  function onChange(post) {
-    console.log(post.id+" - "+post.body)
-    axios.get(`${config.postUrl}?id=${post.id}`).then(res => setTextPost(res.data.body));
-    axios.get(`${config.postUrl}/id=${post.id}/comments`).then(res => setComments(res.data));
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+    width: "100%",
+  },
+  gridList: {
+     width: "100%",       
+  }, 
+  list: {
+      width: '100%'
   }
-     
-  return (                        
-    <>
-      <div className="row">
-        <PostList 
-          posts={posts}
-          onChange={onChange}/>
+}));
+
+export default function Post({posts, onChange}) {
+
+  const classes = useStyles();
+
+  return (
+      <div className={classes.root}>
+          <GridList className={classes.gridList}>                
+              <List className={classes.list}>
+                  {posts.map(post => (
+                      <PostListItem 
+                          key={post.id}
+                          post={post}
+                          onChange={onChange}
+                      />
+                  ))}
+              </List>
+          </GridList>
       </div>
-      <div className="row">
-        <Comments comments={comments}/>
-      </div>
-    </>
-  )    
+  );
 }
