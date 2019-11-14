@@ -1,36 +1,16 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-
-
-const useStyles = makeStyles(theme => ({    
-    inline: {
-        display: 'inline',
-    }
-}));
+import './Comments.css'
 
 export default function CommentItems({comment}) {
 
-    const classes = useStyles();
-
+    
     return (
         
-            <ListItemText 
-                primary={comment.email} secondary={
-                    <React.Fragment>
-                        <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textPrimary"
-                        >
-                            {comment.name}
-                        </Typography>
-                        {" — "}{comment.body}                                    
-                    </React.Fragment>
-                } 
-            />          
+         <li className="li-comments-item">
+             <h3>{comment.name}</h3>
+             <h4>{comment.email}</h4>
+             <span>{comment.body}</span>
+         </li>   
         
     )
 }

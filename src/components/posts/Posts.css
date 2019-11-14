@@ -1,0 +1,24 @@
+.makeStyles-gridList-2 {
+    display: inline;
+}
+
+.post {
+    display: flex;
+}
+
+.post-area {
+    width: 50%;    
+    height: 220px;
+    overflow-y: auto;
+}
+
+.ul-posts {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.li-item {
+    margin: 10px;
+    cursor: pointer;
+    background: 'lightskyblue'
+}

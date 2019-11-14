@@ -1,43 +1,31 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import List from '@material-ui/core/List';
+import Header from '../header/index'
 import PostListItem from './PostListItem';
+import PostMessage from './PostMessage'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-    width: "100%",
-  },
-  gridList: {
-     width: "100%",       
-  }, 
-  list: {
-      width: '100%'
-  }
-}));
-
-export default function Post({posts, onChange}) {
-
-  const classes = useStyles();
-
-  return (
-      <div className={classes.root}>
-          <GridList className={classes.gridList}>                
-              <List className={classes.list}>
-                  {posts.map(post => (
-                      <PostListItem 
-                          key={post.id}
-                          post={post}
-                          onChange={onChange}
-                      />
-                  ))}
-              </List>
-          </GridList>
-      </div>
-  );
+export default function Post({posts, selectPost, onChange}) {
+    
+    return (
+        <>
+            <Header text="Posts"/>
+            <div className="row post">
+                <div className="post-area">                    
+                    <ul className="ul-posts">                                           
+                        {posts.map(post => (
+                            <PostListItem 
+                                key={post.id}
+                                post={post}
+                                onChange={onChange}
+                            />
+                        ))}                            
+                    </ul>                        
+                </div>
+                <div className="post-area">
+                    <PostMessage                        
+                        selectPost={selectPost}                        
+                    />
+                </div>
+            </div>
+        </>        
+    );
 }

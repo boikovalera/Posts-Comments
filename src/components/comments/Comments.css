@@ -1,0 +1,28 @@
+.comments-area {
+    width: 100%;
+    margin: auto;
+    height: 250px;
+    overflow-y: auto;
+}
+
+.ul-comments {
+    list-style-type: none;
+    padding: 0;
+}
+
+.li-comments-item {
+    margin: 10px;    
+    padding: 0 10px;    
+    cursor: pointer;
+    background-color: 'grey';  
+    border: 1px solid grey  
+}
+
+.li-comments-item > h3 {
+    padding: 0;
+    color: blueviolet;
+}
+
+.li-comments-item > span {
+    color: black;
+}
