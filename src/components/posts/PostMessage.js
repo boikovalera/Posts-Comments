@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from '../../propTypes';
 
 export default function PostMessage({ selectPost }) {
   return (
@@ -18,4 +19,8 @@ export default function PostMessage({ selectPost }) {
       </Card>
     </div>
   )
+}
+
+PostMessage.prototype = {
+  selectPost: PropTypes.post
 }

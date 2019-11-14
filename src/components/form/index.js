@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './Form.css';
 import config from '../../config';
+import PropTypes from '../../propTypes';
 
 export default function index({selectPost, onSave}) {
 
@@ -45,4 +46,9 @@ export default function index({selectPost, onSave}) {
             </div>
         </>
     )
+}
+
+index.prototype = {
+    selectPost: PropTypes.post,
+    onSave: PropTypes.func.isRequired
 }

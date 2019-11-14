@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import PropTypes from '../../propTypes';
 
 export default function Header({text}) {
     return (
@@ -11,4 +12,8 @@ export default function Header({text}) {
             </div>            
         </div>
     )
+}
+
+Header.prototype = {
+    text: PropTypes.string
 }

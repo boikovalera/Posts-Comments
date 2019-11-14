@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../header/index'
+import PropTypes from '../../propTypes';
 import PostListItem from './PostListItem';
 import PostMessage from './PostMessage'
 
@@ -28,4 +29,10 @@ export default function Post({posts, selectPost, onChange}) {
             </div>
         </>        
     );
+}
+
+Post.prototype = {
+    posts: PropTypes.arrayOf(PropTypes.post),
+    selectPost: PropTypes.post,
+    onChange: PropTypes.func.isRequired
 }

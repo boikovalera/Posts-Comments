@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../header/index'
 import CommentItem from './CommentItem'
 import './Comments.css'
+import PropTypes from '../../propTypes';
 
 export default function Comments({comments}) {
     
@@ -20,4 +21,8 @@ export default function Comments({comments}) {
             </div>
         </>
     );
+}
+
+Comments.prototype = {
+    comments: PropTypes.arrayOf(PropTypes.comment)
 }
